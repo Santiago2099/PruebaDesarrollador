@@ -20,11 +20,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('register', 'App\Http\Controllers\UserController@register');
 Route::post('login', 'App\Http\Controllers\UserController@authenticate');
-Route::get('vistaLogin', 'UserController@viewLogin');
-Route::get('vistaRegistro', 'UserController@viewRegister');
+Route::get('logout', 'App\Http\Controllers\UserController@logout');
+
 
 Route::group(['middleware' => ['jwt.verify']], function() {
-
     Route::post('user','App\Http\Controllers\UserController@getAuthenticatedUser');
-
 });

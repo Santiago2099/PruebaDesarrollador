@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Log;
+use App\Models\roles;
 
 class UserController extends Controller
 {
@@ -23,6 +24,16 @@ class UserController extends Controller
           return response()->json(['error' => 'could_not_create_token'], 500);
       }
       return response()->json(compact('token'));
+    }
+
+    public function logout()
+    {
+      $token = JWTAuth::getToken();
+      try {
+        JWTAuth::invalidate($token);
+      } catch (JWTException $e) {
+          return response()->json(['error' => 'could_not_invalidate_token'], 500);
+      }
     }
 
     public function getAuthenticatedUser()
@@ -44,12 +55,12 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
-
         Log::info($request);
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'rol' => 'required',
         ]);
 
         if($validator->fails()){
@@ -60,6 +71,7 @@ class UserController extends Controller
             'name' => $request->get('name'),
             'email' => $request->get('email'),
             'password' => Hash::make($request->get('password')),
+            'role_id' => $request->get('rol'),
         ]);
 
         $token = JWTAuth::fromUser($user);
@@ -73,6 +85,17 @@ class UserController extends Controller
     public function viewRegister()
     {
         return view('User/register');
+    }
+    public function viewPerfil()
+    {
+        return view('User/perfil');
+    }
+    public function roles()
+    {
+        $roles = roles::all();
+        return response()->json([
+            'data' => $roles,
+        ], 200);
     }
 }
 

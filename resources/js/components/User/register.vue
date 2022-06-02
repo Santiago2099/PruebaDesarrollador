@@ -18,12 +18,11 @@
                 <input type="password" class="form-control" id="password_confirmation" v-model="user.password_confirmation">
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Confirme la contaseña</label>
-                <input type="password" class="form-control" id="password_confirmation" v-model="user.password_confirmation">
+                <label class="form-label">Rol del usuario</label>
+                <select class="form-select" aria-label="Seleccione...." v-model="user.rol">
+                    <option v-for="item in roles" :key="index" :label="item.name" :value="item.id">Open this select menu</option>
+                </select>
             </div>
-            <select class="form-select" aria-label="Seleccione...." v-model="rol">
-                <option v-for="item in roles" :key="index" :label="item.name" :value="item.id">Open this select menu</option>
-            </select>
             <button type="button" class="btn btn-primary" @click="Save(user)">Guardar</button>
         </form>
     </div>
@@ -52,7 +51,8 @@ export default {
     methods: {
         Save(data) {
             axios.post('/api/register', data).then(res => {
-
+                localStorage.setItem("session", JSON.stringify(res.data))
+                window.location.replace("citas");
             })
         }
     },

@@ -19,10 +19,10 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('role_id');
-            $table->integer('especialidad_id');
-            $table->foreing('especialidad_id')->references('id')->on('especialidades');
-            $table->foreing('role_id')->references('id')->on('roles');
+            $table->unsignedBigInteger('role_id');
+            $table->unsignedBigInteger('especialidad_id')->nullable();
+            $table->foreign('especialidad_id')->references('id')->on('especialidades');
+            $table->foreign('role_id')->references('id')->on('roles');
             $table->rememberToken();
             $table->timestamps();
         });

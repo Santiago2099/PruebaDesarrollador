@@ -22,6 +22,8 @@ class User extends Authenticatable  implements JWTSubject
         'name',
         'email',
         'password',
+        'role_id',
+        'especialidad_id'
     ];
 
     /**
@@ -50,5 +52,9 @@ class User extends Authenticatable  implements JWTSubject
     public function getJWTCustomClaims()
     {
     	return [];
+    }
+    public function Horario()
+    {
+        return $this->hasMany('App\Models\horario_medico', 'medico_id');
     }
 }
