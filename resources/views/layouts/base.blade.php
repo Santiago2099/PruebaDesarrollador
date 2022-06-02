@@ -334,7 +334,6 @@
 <script>
     $(document).on('click', '#logout', function(){
         var local = JSON.parse(localStorage.getItem('session'))
-        console.log(local);
         fetch('api/logout',{
             method: 'GET',
             headers: {

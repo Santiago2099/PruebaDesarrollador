@@ -19962,7 +19962,7 @@ __webpack_require__.r(__webpack_exports__);
           Authorization: 'Bearer ' + local.token
         }
       }).then(function (res) {
-        console.log(response.data);
+        location.reload();
       });
     },
     guardarNewEspecialidad: function guardarNewEspecialidad() {
@@ -19972,7 +19972,7 @@ __webpack_require__.r(__webpack_exports__);
           Authorization: 'Bearer ' + local.token
         }
       }).then(function (res) {
-        console.log(response.data);
+        location.reload();
       });
     },
     guardarEspecialidad: function guardarEspecialidad() {
@@ -19982,7 +19982,7 @@ __webpack_require__.r(__webpack_exports__);
           Authorization: 'Bearer ' + local.token
         }
       }).then(function (res) {
-        console.log(response.data);
+        location.reload();
       });
     }
   }
@@ -20725,16 +20725,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     type: "button",
     "class": "btn btn-primary",
     onClick: _cache[5] || (_cache[5] = function ($event) {
-      return _ctx.guardar();
+      return $options.guardarHorario();
     })
   }, "Guardar")])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Modal crear especialidad "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_38, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_40, [_hoisted_41, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_42, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_43, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_44, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_45, [_hoisted_46, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
     "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
-      return $data.especialidad.nombre = $event;
+      return $data.especialidadNew.nombre = $event;
     })
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.especialidad.nombre]])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_47, [_hoisted_48, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.especialidadNew.nombre]])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_47, [_hoisted_48, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "button",
     "class": "btn btn-primary",
     onClick: _cache[7] || (_cache[7] = function ($event) {

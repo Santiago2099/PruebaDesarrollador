@@ -89,7 +89,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary" @click="guardar()">Guardar</button>
+                        <button type="button" class="btn btn-primary" @click="guardarHorario()">Guardar</button>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@
                             <div class="col-12">
                                 <div class="col-md-4">
                                     <label for="">Especialidad</label>
-                                    <input type="text" v-model="especialidad.nombre">
+                                    <input type="text" v-model="especialidadNew.nombre">
                                 </div>
                             </div>
                         </div>
@@ -243,7 +243,7 @@ export default {
                     Authorization: 'Bearer ' + local.token
                 }
             }).then(res => {
-                console.log(response.data);
+                location.reload();
             })
         },
         guardarNewEspecialidad() {
@@ -253,7 +253,7 @@ export default {
                     Authorization: 'Bearer ' + local.token
                 }
             }).then(res => {
-                console.log(response.data);
+                location.reload();
             })
         },
         guardarEspecialidad() {
@@ -263,7 +263,7 @@ export default {
                     Authorization: 'Bearer ' + local.token
                 }
             }).then(res => {
-                console.log(response.data);
+                location.reload();
             })
         }
     }
